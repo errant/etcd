@@ -5,7 +5,7 @@ class Parser implements \Etcd\Interfaces\Parser {
 
 	private $api;
 
-	public function setAPI($api)
+	public function setAPI(\Etcd\Interfaces\API $api)
 	{
 		$this->api = $api;
 	}

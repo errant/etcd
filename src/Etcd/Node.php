@@ -64,6 +64,8 @@ class Node {
 	{
 		if(!$this->isDir()) {
 			$this->api->set($this->node['key'],$this->node['value']);
+		} else {
+			// TODO: needs to be able to set TTL
 		}
 	}
 

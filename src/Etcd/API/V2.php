@@ -1,7 +1,7 @@
 <?php
 namespace Etcd\API;
 
-class V2 {
+class V2 implements \Etcd\Interfaces\API {
 
 	private $connection;
 
