@@ -1,0 +1,21 @@
+{
+    "name": "QED",
+    "description": "QED is an etcd library for PHP 5.5+",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tom Morton",
+            "email": "tom@errant.me.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "4.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": { "Etcd\\":  "src/Etcd" }
+    }
+}

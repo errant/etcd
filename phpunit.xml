@@ -1,0 +1,34 @@
+<phpunit bootstrap="tests/bootstrap.php"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         colors="false"
+         stopOnError="true"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false">
+
+    <testsuites>
+        <testsuite name="etcd-tests">
+            <directory>tests/Etcd</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Including and excluding files for code coverage report -->
+    <filter>
+        <!-- Files / directories to include -->
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
+
+    <!-- Settings for log output -->
+    <logging>
+        <log type="coverage-html" target="build/coverage" title="QED Code Coverage"
+             charset="UTF-8" yui="true" highlight="true"
+             lowUpperBound="35" highLowerBound="70"/>
+        <log type="junit" target="build/logs/junit.xml"
+             logIncompleteSkipped="false"/>
+        <log type="coverage-text" target="build/logs/cov-txt.txt"/>
+    </logging>
+</phpunit>
