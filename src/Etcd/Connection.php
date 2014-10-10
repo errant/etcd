@@ -1,8 +1,5 @@
 <?php
 namespace Etcd;
-
-use GuzzleHttp\Client;
-
 /**
  * Etcd Connection
  *
@@ -50,11 +47,21 @@ class Connection extends \GuzzleHttp\Client {
 		parent::__construct(array('base_url' => $server));
 	}
 
+	/**
+	 * Get the Server
+	 *
+	 * @return string
+	 */
 	public function getServer()
 	{
 		return $this->server;
 	}
 
+	/**
+	 * Get the Etcd Version
+	 *
+	 * @return string
+	 */
 	public function getVersion()
 	{
 		if(!$this->version) {
@@ -64,6 +71,12 @@ class Connection extends \GuzzleHttp\Client {
 		return $this->version;
 	}
 
+	/**
+	 * Set the API Version
+	 *
+	 * @param integer $version
+	 * @throws \Etcd\Exception\APIException
+	 */
 	public function setAPIVersion($version)
 	{
 		if(!in_array($version,array(2))) {
@@ -73,17 +86,33 @@ class Connection extends \GuzzleHttp\Client {
 		$this->APIVersion = $version;
 	}
 
+	/**
+	 * Get the API Version
+	 *
+	 * @return integer
+	 */
 	public function getAPIVersion()
 	{
 		return $this->APIVersion;
 	}
 
+	/**
+	 * Get API Interface
+	 *
+	 * @return object \Etcd\Interfaces\Object
+	 */
 	public function getAPI()
 	{
 		$apiClassName = '\Etcd\Api\V' . $this->APIVersion;
 		return new $apiClassName($this);
 	}
 
+	/**
+	 * Get a Key Endpoint
+	 *
+	 * @param string $key
+	 * @return string
+	 */
 	public function getKeyEndpoint($key)
 	{
 		return 'v' . $this->APIVersion . '/keys/' . $key;
