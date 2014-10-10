@@ -8,4 +8,10 @@ namespace QED\Nodes;
  */
 class Key extends \QED\Node {
 
+
+  public function save()
+  {
+      $this->api->set($this->key, $this->value);
+  }
+
 }
