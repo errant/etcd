@@ -16,7 +16,7 @@ class Dir extends \QED\Node implements \SeekableIterator, \ArrayAccess {
 
         $nodes = array();
 
-        if(is_array($this->data['nodes'])) {
+        if(isset($this->data['nodes']) && is_array($this->data['nodes'])) {
             foreach($this->data['nodes'] as $node) {
                 if(isset($node['dir'])) {
                     $nodes[$this->localKey($node['key'])] = new \QED\Nodes\Dir($node, $api);
@@ -108,7 +108,13 @@ class Dir extends \QED\Node implements \SeekableIterator, \ArrayAccess {
     }
     public function save()
     {
+        if($this->createdIndex) {
 
+        } else {
+            // Create Directory
+            $this->api->set($this->key, Null, array('dir' => 'true'));
+        }
+        
     }
 
 }

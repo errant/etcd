@@ -2,6 +2,7 @@
     "name": "errant/etcd",
     "description": "QED is an etcd library for PHP 5.5+",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Tom Morton",

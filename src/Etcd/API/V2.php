@@ -35,7 +35,7 @@ class V2 implements \Etcd\Interfaces\API {
     {
         $uri = $this->getEndpoint($key);
 
-    $body = array_merge(array('value' => $value), $options);
+        $body = array_merge(array('value' => $value), $options);
 
         $response = $this->connection->put($uri,array('body' => $body, 'exceptions' => false));
 
