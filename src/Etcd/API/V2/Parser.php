@@ -13,7 +13,7 @@ class Parser implements \Etcd\Interfaces\Parser {
     public function parse($response)
     {
         if(isset($response['errorCode'])) {
-            throw new \Etcd\Exception\APIException('(' . $response['errorCode'] . ') ' . $response['message'] . ': ' . $response['cause']);
+            throw new \Etcd\Exception\APIException('(' . $response['errorCode'] . ') ' . $response['message']);
         }
 
         return new \Etcd\Node($response['node'], $this->api);

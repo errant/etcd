@@ -21,6 +21,6 @@ class Connection extends \Etcd\Connection {
     {
         $api = parent::getAPI();
         $api->setParser(new \QED\Parser);
-    return $api;
+        return $api;
     }
 }

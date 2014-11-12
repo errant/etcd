@@ -22,11 +22,13 @@ class V2 implements \Etcd\Interfaces\API {
         $this->parser->setAPI($this);
     }
 
-    public function create($key, $value)
+    public function create($key, $value, $options = array())
     {
         $uri = $this->getEndpoint($key);
 
-        $response = $this->connection->post($uri,array('body' => array('value' => $value), 'exceptions' => false));
+        $body = array_merge(array('value' => $value), $options);
+
+        $response = $this->connection->post($uri,array('body' => $body, 'exceptions' => false));
 
         return $this->parser->parse($response->json());
     }

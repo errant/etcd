@@ -106,6 +106,7 @@ class Dir extends \QED\Node implements \SeekableIterator, \ArrayAccess {
         $this->api->delete($node->key);
         unset($this->nodes[$offset]);
     }
+    
     public function save()
     {
         if($this->createdIndex) {
