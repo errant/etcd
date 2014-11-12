@@ -28,7 +28,7 @@ class V2 implements \Etcd\Interfaces\API {
 
         $body = array_merge(array('value' => $value), $options);
 
-        $response = $this->connection->post($uri,array('body' => $body, 'exceptions' => false));
+        $response = $this->connection->put($uri,array('body' => $body, 'exceptions' => false));
 
         return $this->parser->parse($response->json());
     }
